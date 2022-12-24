@@ -1,4 +1,3 @@
-
 import cmath
 import math
 import mpmath
@@ -35,4 +34,16 @@ while True:
         z = (mpmath.factorial(8) * mpmath.power(3, 7) * mpmath.factorial(12) * mpmath.power(2, 10) * mpmath.power(mpmath.factorial(24), d)) / mpmath. power(24, e)
     print("The number of possible permutations for a " + str(a) + "x" + str(a) + "x" + str(a) + " rubik's cube with size is:")
     print()
-    print(int(mpmath.mpf(z)))
+    if(a > 2):
+        print(int(mpmath.mpf(z)))
+        mpmath.mp.dps = 4
+        print()
+        print("as scientific notation:")
+        print()
+        print(z)
+        mpmath.mp.prec = 99999
+        mpmath.mp.dps = 99999
+    else:
+        print(int(mpmath.mpf(z)))
+        mpmath.mp.prec = 99999
+        mpmath.mp.dps = 99999
