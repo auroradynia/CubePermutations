@@ -1,8 +1,5 @@
 import mpmath
 
-mpmath.mp.prec = 99999
-mpmath.mp.dps = 99999
-
 def print_result():
     print()
     print(int(result))
@@ -11,15 +8,22 @@ def print_result():
     print("as scientific notation:")
     print()
     print(result)
-    mpmath.mp.prec = 99999
-    mpmath.mp.dps = 99999
 
 while True:
+    mpmath.mp.prec = 99999
+    mpmath.mp.dps = 99999
     print()
-    faces = int(input("Enter number of faces: (6 for cube, 12 for megaminx)\n"));
-
+    try:
+        faces = int(input("Enter number of faces: (6 for cube, 12 for megaminx)\n"));
+    except ValueError:
+        print("ERROR: invalid value (input must be integer)")
+        continue
     if(faces == 6): #cube
-        size = int(input("Enter number of divisions: (e.g. 2 for pocket cube, 3 for regular rubik's cube, 5 for professors rubik's cube)\n"))
+        try:
+            size = int(input("Enter number of divisions: (e.g. 2 for pocket cube, 3 for regular rubik's cube, 5 for professors rubik's cube)\n"))
+        except ValueError:
+            print("ERROR: invalid value (input must be integer)")
+            continue
         centres = (mpmath.power(size - 2, 2) * faces);
         edges = ((size - 2) * 4 * (faces / 2));
         if(size < 2):
@@ -43,7 +47,11 @@ while True:
             print_result()
 
     elif(faces == 12): #megaminx
-        size = int(input("Enter number of divisions: (e.g. 2 for kilominx, 3 for megaminx, 5 for gigaminx)\n"))
+        try:
+            size = int(input("Enter number of divisions: (e.g. 2 for kilominx, 3 for megaminx, 5 for gigaminx)\n"))
+        except ValueError:
+            print("ERROR: invalid value (input must be integer)")
+            continue
         if(size < 2):
             print()
             print("The number of possible permutations for a " + str(size) + "x" + str(size) + "x" + str(size) + " megaminx is:")
@@ -64,4 +72,4 @@ while True:
             print("The number of possible permutations for a " + str(size) + "x" + str(size) + "x" + str(size) + " megaminx is:")
             print_result()
     else:
-        print("ERROR: invalid input")
+        print("ERROR: invalid value (supported faces are 6 and 12)")
