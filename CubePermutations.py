@@ -10,7 +10,6 @@ def print_result():
     print(result)
 
 while True:
-    mpmath.mp.prec = 99999
     mpmath.mp.dps = 99999
     print()
     try:
@@ -57,13 +56,8 @@ while True:
             print("The number of possible permutations for a " + str(size) + "x" + str(size) + "x" + str(size) + " megaminx is:")
             print()
             print(1)
-        elif(size == 2):
-            result = (mpmath.factorial(20) * mpmath.power(3, 20) / (2 * 3 * 60));
-            print("The number of possible permutations for a " + str(size) + "x" + str(size) + "x" + str(size) + " megaminx is:")
-            print_result()
         elif(size % 2 == 0): #even
-            edges = (((size - 2) * 5 * faces) / 2);
-            result = (((mpmath.factorial(19) / 2) * mpmath.power(3, 18)) * (mpmath.factorial(edges) / 2) * (mpmath.factorial(60) / mpmath.power(mpmath.factorial(5), 12))); # ((mpmath.factorial(edges) / 2) * mpmath.power(2, (edges - 1))) * ((mpmath.factorial(20) / 2) * mpmath.power(3, 19)) / (2 * 3 * 60)
+            result = ((mpmath.factorial(20) * mpmath.power(3, 20)) / (mpmath.power(5 * 12, mpmath.fmod(size + 1, 2)) * 3 * 2)) * mpmath.power(((mpmath.factorial(30) * mpmath.power(2, 30)) / (2 * 2)), mpmath.fmod(size, 2)) * mpmath.power((mpmath.factorial(60) / 2), ((size - 2) / 2)) * mpmath.power((mpmath.factorial(60) / mpmath.power(mpmath.factorial(5), 12)), mpmath.power((size - 2) / 2, 2));
             print("The number of possible permutations for a " + str(size) + "x" + str(size) + "x" + str(size) + " megaminx is:")
             print_result()
         elif(size % 2 == 1): #odd
