@@ -23,6 +23,7 @@ while True:
     if(a < 2):
         print()
         print("The number of possible permutations for a " + str(a) + "x" + str(a) + "x" + str(a) + " rubik's cube with size is:")
+        print()
         print(1)
     else:
         print("The number of possible permutations for a " + str(a) + "x" + str(a) + "x" + str(a) + " rubik's cube with size is:")
