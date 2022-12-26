@@ -10,7 +10,7 @@ def print_result():
     print(result)
 
 while True:
-    mpmath.mp.dps = 99999
+    mpmath.mp.dps = 99999 #increase this, see readme
     print()
     try:
         faces = int(input("Enter number of faces: (6 for cube, 12 for megaminx)\n"));
