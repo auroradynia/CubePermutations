@@ -5,4 +5,4 @@ If you want to be able to say these numbers use http://www.isthe.com/cgi-bin/cho
 
 Currently I have added cubes and megaminxes.
 
-Accuracy falls apart when the output value has over 100,000 digits in it (over 9.99e+99999), you can edit the source code and increase mpmath.mp.dps but it makes calculations take longer.
+Printing falls apart when the output value has over 100,000 digits in it (over 9.99e+99999), you can edit the source code and set sys.set_int_max_str_digits(0) to remove the limit but it can take a long time or crash if you ask for a value too large.
